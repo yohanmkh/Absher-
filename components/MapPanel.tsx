@@ -1,4 +1,6 @@
 import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 import { Alert } from '../types';
 import { MapPin } from 'lucide-react';
 
@@ -11,14 +13,43 @@ interface MapPanelProps {
 export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onSelectAlert }) => {
   return (
     <div className="relative w-full h-full bg-slate-900 rounded-xl overflow-hidden border border-slate-800 group">
-       {/* Interactive Map Placeholder - Replace with real map component */}
+       {/* Interactive Map */}
        <div className="absolute inset-0 z-0">
-         {/* TODO: Insert interactive map here (e.g., Leaflet, Google Maps) */}
-         <div className="w-full h-full bg-slate-800 flex items-center justify-center text-cyan-400 text-lg font-bold opacity-60">
-           [Interactive Map Coming Soon]
-         </div>
+         <MapContainer
+           center={[24.7136, 46.6753]} // Riyadh center
+           zoom={12}
+           scrollWheelZoom={true}
+           style={{ width: '100%', height: '100%' }}
+           className="rounded-xl"
+         >
+           <TileLayer
+             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+           />
+           {alerts.map((alert) => (
+             <Marker
+               key={alert.id}
+               position={[
+                 // MapPanel expects coordinates in %, so convert to Riyadh area for demo
+                 24.7136 + (alert.coordinates.y - 50) * 0.01,
+                 46.6753 + (alert.coordinates.x - 50) * 0.01
+               ]}
+               eventHandlers={{
+                 click: () => onSelectAlert(alert.id)
+               }}
+             >
+               <Popup>
+                 <div>
+                   <strong>{alert.type}</strong><br />
+                   {alert.location}<br />
+                   <span className="text-xs text-slate-500">{alert.riskLevel}</span>
+                 </div>
+               </Popup>
+             </Marker>
+           ))}
+         </MapContainer>
          {/* Overlay Gradient for depth */}
-         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-slate-900/50"></div>
+         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-slate-900/50 pointer-events-none"></div>
        </div>
 
        {/* Grid Overlay */}
