@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
             <div className="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center border border-slate-600">
               <User className="w-4 h-4 text-slate-300" />
             </div>
-            <span className="text-sm font-medium text-slate-300 hidden md:block">Officer Al-Saud</span>
+            <span className="text-sm font-medium text-slate-300 hidden md:block">Officer Hassan</span>
           </div>
         </div>
       </div>
