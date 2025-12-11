@@ -22,7 +22,7 @@ export const MOCK_ALERTS: Alert[] = [
       name: 'Khalid Al-Rimal',
       nameAr: 'خالد الرمال',
       age: 28,
-  imageUrl: '/WhatsApp Image 2025-12-11 at 20.54.09.jpeg', // Local photo
+  imageUrl: 'https://i.postimg.cc/TKJPdmVk/Whats-App-Image-2025-12-11-at-20-54-09.jpg', // External photo
       history: ['Speeding (3x)', 'Red Light Violation', 'Restricted Zone Entry (3x)']
     }
   },
@@ -51,13 +51,23 @@ export const MOCK_ALERTS: Alert[] = [
 export const CAMERAS = [
   { 
     id: 1, 
-    name: 'Local Photo 1', 
-  url: '/WhatsApp Image 2025-12-11 at 20.54.09.jpeg'
+    name: 'Photo 1', 
+    url: 'https://i.postimg.cc/TKJPdmVk/Whats-App-Image-2025-12-11-at-20-54-09.jpg'
   },
   { 
     id: 2, 
-    name: 'Local Photo 2', 
-  url: '/WhatsApp Image 2025-12-11 at 20.55.13.jpeg'
+    name: 'Photo 2', 
+    url: 'https://i.postimg.cc/RWL0Sf7g/Whats-App-Image-2025-12-11-at-20-55-13.jpg'
+  },
+  { 
+    id: 3, 
+    name: 'Photo 3', 
+    url: 'https://i.postimg.cc/TKJPdmVk/Whats-App-Image-2025-12-11-at-20-54-09.jpg'
+  },
+  { 
+    id: 4, 
+    name: 'Photo 4', 
+    url: 'https://i.postimg.cc/RWL0Sf7g/Whats-App-Image-2025-12-11-at-20-55-13.jpg'
   },
 ];
 
