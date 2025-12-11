@@ -27,6 +27,42 @@ export const MOCK_ALERTS: Alert[] = [
     }
   },
   {
+    id: 'ALT-2024-900',
+    type: 'Unauthorized Entry',
+    location: 'Diplomatic Quarter',
+    timestamp: '15:10:22',
+    riskLevel: RiskLevel.HIGH,
+    description: 'Individual detected breaching restricted area perimeter.',
+    coordinates: { x: 60, y: 40 },
+    status: 'active',
+    person: {
+      id: '2059841234',
+      name: 'Sara Al-Mutairi',
+      nameAr: 'سارة المطيري',
+      age: 34,
+      imageUrl: 'https://i.postimg.cc/RWL0Sf7g/Whats-App-Image-2025-12-11-at-20-55-13.jpg',
+      history: ['Access Violation', 'Previous Trespassing']
+    }
+  },
+  {
+    id: 'ALT-2024-901',
+    type: 'Suspicious Package',
+    location: 'Riyadh Metro Station',
+    timestamp: '15:22:10',
+    riskLevel: RiskLevel.MEDIUM,
+    description: 'Unattended package reported by security camera.',
+    coordinates: { x: 30, y: 60 },
+    status: 'active',
+    person: {
+      id: '3098127654',
+      name: 'Fahad Al-Qahtani',
+      nameAr: 'فهد القحطاني',
+      age: 41,
+      imageUrl: 'https://i.postimg.cc/TKJPdmVk/Whats-App-Image-2025-12-11-at-20-54-09.jpg',
+      history: ['Lost Property (2x)', 'Security Check (1x)']
+    }
+  },
+  {
     id: 'ALT-2024-891',
     type: 'Suspicious Behavior',
     location: 'Al Olaya St, Near Faisaliah',

@@ -11,15 +11,14 @@ interface MapPanelProps {
 export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onSelectAlert }) => {
   return (
     <div className="relative w-full h-full bg-slate-900 rounded-xl overflow-hidden border border-slate-800 group">
-       {/* Local Photo Background */}
-       <div className="absolute inset-0">
-          <img 
-            src="https://i.postimg.cc/TKJPdmVk/Whats-App-Image-2025-12-11-at-20-54-09.jpg" 
-            alt="Dashboard Photo 1" 
-            className="w-full h-full object-cover opacity-50 grayscale contrast-125"
-          />
-          {/* Overlay Gradient for depth */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-slate-900/50"></div>
+       {/* Interactive Map Placeholder - Replace with real map component */}
+       <div className="absolute inset-0 z-0">
+         {/* TODO: Insert interactive map here (e.g., Leaflet, Google Maps) */}
+         <div className="w-full h-full bg-slate-800 flex items-center justify-center text-cyan-400 text-lg font-bold opacity-60">
+           [Interactive Map Coming Soon]
+         </div>
+         {/* Overlay Gradient for depth */}
+         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-slate-900/50"></div>
        </div>
 
        {/* Grid Overlay */}
