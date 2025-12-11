@@ -98,12 +98,12 @@ export const CAMERAS = [
   { 
     id: 3, 
     name: 'Photo 3', 
-    url: 'https://i.postimg.cc/TKJPdmVk/Whats-App-Image-2025-12-11-at-20-54-09.jpg'
+    url: 'https://i.postimg.cc/143zrMkL/Whats-App-Image-2025-12-12-at-00-13-30.jpg'
   },
   { 
     id: 4, 
     name: 'Photo 4', 
-    url: 'https://i.postimg.cc/RWL0Sf7g/Whats-App-Image-2025-12-11-at-20-55-13.jpg'
+    url: 'https://i.postimg.cc/bdwv9L74/Whats-App-Image-2025-12-12-at-00-13-33.jpg'
   },
 ];
 
