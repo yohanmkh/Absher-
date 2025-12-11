@@ -22,7 +22,7 @@ export const MOCK_ALERTS: Alert[] = [
       name: 'Khalid Al-Rimal',
       nameAr: 'خالد الرمال',
       age: 28,
-      imageUrl: require('./assets/WhatsApp Image 2025-12-11 at 20.54.09.jpeg'), // Local photo
+  imageUrl: '/WhatsApp Image 2025-12-11 at 20.54.09.jpeg', // Local photo
       history: ['Speeding (3x)', 'Red Light Violation', 'Restricted Zone Entry (3x)']
     }
   },
@@ -52,12 +52,12 @@ export const CAMERAS = [
   { 
     id: 1, 
     name: 'Local Photo 1', 
-    url: require('./assets/WhatsApp Image 2025-12-11 at 20.54.09.jpeg')
+  url: '/WhatsApp Image 2025-12-11 at 20.54.09.jpeg'
   },
   { 
     id: 2, 
     name: 'Local Photo 2', 
-    url: require('./assets/WhatsApp Image 2025-12-11 at 20.55.13.jpeg')
+  url: '/WhatsApp Image 2025-12-11 at 20.55.13.jpeg'
   },
 ];
 

@@ -14,7 +14,7 @@ export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onS
        {/* Local Photo Background */}
        <div className="absolute inset-0">
           <img 
-            src={require('../assets/WhatsApp Image 2025-12-11 at 20.54.09.jpeg')} 
+            src="/WhatsApp Image 2025-12-11 at 20.54.09.jpeg" 
             alt="Local Dashboard Photo 1" 
             className="w-full h-full object-cover opacity-50 grayscale contrast-125"
           />
