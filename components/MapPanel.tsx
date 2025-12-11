@@ -94,8 +94,8 @@ export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onS
          );
        })}
        
-     <div className="absolute bottom-4 right-4 bg-slate-900/90 backdrop-blur border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-500 shadow-lg">
-       LOCAL DASHBOARD PHOTO 1
+     <div className="absolute bottom-4 right-4 bg-slate-900/90 backdrop-blur border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-500 shadow-lg z-30">
+       RIYADH SECTOR • LIVE
      </div>
     </div>
   );

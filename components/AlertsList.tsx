@@ -10,8 +10,8 @@ interface AlertsListProps {
 
 export const AlertsList: React.FC<AlertsListProps> = ({ alerts, selectedId, onSelect }) => {
   return (
-   <div className="flex flex-col h-full bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden min-h-0">
-       <div className="p-4 border-b border-slate-800 bg-slate-950 flex justify-between items-center">
+   <div className="flex flex-col h-full bg-slate-900/50 border border-slate-800 rounded-xl overflow-hidden">
+       <div className="p-4 border-b border-slate-800 bg-slate-950 flex justify-between items-center shrink-0">
           <h2 className="text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2">
              <AlertTriangle className="w-4 h-4 text-cyan-500" /> Active Incidents
           </h2>
@@ -20,7 +20,7 @@ export const AlertsList: React.FC<AlertsListProps> = ({ alerts, selectedId, onSe
           </span>
        </div>
        
-   <div className="flex-1 overflow-y-auto p-2 space-y-2 min-h-0 max-h-[60vh]">
+   <div className="flex-1 overflow-y-auto p-2 space-y-2" style={{ maxHeight: 'calc(100% - 60px)' }}>
           {alerts.map((alert) => {
              const isSelected = selectedId === alert.id;
              const isCritical = alert.riskLevel === RiskLevel.CRITICAL;
