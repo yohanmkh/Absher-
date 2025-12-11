@@ -22,7 +22,7 @@ export const MOCK_ALERTS: Alert[] = [
       name: 'Khalid Al-Rimal',
       nameAr: 'خالد الرمال',
       age: 28,
-      imageUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop', // Portrait of a man
+      imageUrl: require('./assets/WhatsApp Image 2025-12-11 at 20.54.09.jpeg'), // Local photo
       history: ['Speeding (3x)', 'Red Light Violation', 'Restricted Zone Entry (3x)']
     }
   },
@@ -51,24 +51,14 @@ export const MOCK_ALERTS: Alert[] = [
 export const CAMERAS = [
   { 
     id: 1, 
-    name: 'King Fahd Rd (N)', 
-    url: 'https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=1000&auto=format&fit=crop' 
-  }, // Riyadh Highway/Architecture
+    name: 'Local Photo 1', 
+    url: require('./assets/WhatsApp Image 2025-12-11 at 20.54.09.jpeg')
+  },
   { 
     id: 2, 
-    name: 'Takhassusi St (North)', 
-    url: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?q=80&w=1000&auto=format&fit=crop' 
-  }, // City Traffic / Street View
-  { 
-    id: 3, 
-    name: 'Olaya District Main', 
-    url: 'https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=80&w=1000&auto=format&fit=crop' 
-  }, // Riyadh Skyline
-  { 
-    id: 4, 
-    name: 'Kingdom Centre Ext', 
-    url: 'https://images.unsplash.com/photo-1586724237569-f3d0c1dee8c6?q=80&w=1000&auto=format&fit=crop'
-  }, // Kingdom Centre Night
+    name: 'Local Photo 2', 
+    url: require('./assets/WhatsApp Image 2025-12-11 at 20.55.13.jpeg')
+  },
 ];
 
 export const MAP_STYLES = {

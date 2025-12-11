@@ -11,11 +11,11 @@ interface MapPanelProps {
 export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onSelectAlert }) => {
   return (
     <div className="relative w-full h-full bg-slate-900 rounded-xl overflow-hidden border border-slate-800 group">
-       {/* Realistic Dark Map Background */}
+       {/* Local Photo Background */}
        <div className="absolute inset-0">
           <img 
-            src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000&auto=format&fit=crop" 
-            alt="Riyadh Map" 
+            src={require('../assets/WhatsApp Image 2025-12-11 at 20.54.09.jpeg')} 
+            alt="Local Dashboard Photo 1" 
             className="w-full h-full object-cover opacity-50 grayscale contrast-125"
           />
           {/* Overlay Gradient for depth */}
@@ -64,9 +64,9 @@ export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onS
          );
        })}
        
-       <div className="absolute bottom-4 right-4 bg-slate-900/90 backdrop-blur border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-500 shadow-lg">
-          RIYADH SECTOR • AL OLAYA
-       </div>
+     <div className="absolute bottom-4 right-4 bg-slate-900/90 backdrop-blur border border-slate-700 px-3 py-1.5 rounded-lg text-xs font-mono text-cyan-500 shadow-lg">
+       LOCAL DASHBOARD PHOTO 1
+     </div>
     </div>
   );
 };
