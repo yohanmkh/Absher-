@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Alert } from '../types';
 import { MapPin } from 'lucide-react';
@@ -11,20 +12,34 @@ interface MapPanelProps {
 }
 
 export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onSelectAlert }) => {
+  const mapRef = useRef(null);
+
+  // Fix Leaflet marker icons issue
+  useEffect(() => {
+    delete (L.Icon.Default.prototype as any)._getIconUrl;
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
+      iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
+    });
+  }, []);
+
   return (
     <div className="relative w-full h-full bg-slate-900 rounded-xl overflow-hidden border border-slate-800 group">
        {/* Interactive Map */}
-       <div className="absolute inset-0 z-0">
+       <div className="absolute inset-0 z-0 rounded-xl" style={{ height: '100%', width: '100%' }}>
          <MapContainer
-           center={[24.7136, 46.6753]} // Riyadh center
+           ref={mapRef}
+           center={[24.7136, 46.6753]}
            zoom={12}
            scrollWheelZoom={true}
-           style={{ width: '100%', height: '100%' }}
+           style={{ width: '100%', height: '100%', zIndex: 10, position: 'relative' }}
            className="rounded-xl"
          >
            <TileLayer
              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+             maxZoom={19}
            />
            {alerts.map((alert) => (
              <Marker
@@ -48,15 +63,15 @@ export const MapPanel: React.FC<MapPanelProps> = ({ alerts, selectedAlertId, onS
              </Marker>
            ))}
          </MapContainer>
-         {/* Overlay Gradient for depth */}
-         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-slate-900/50 pointer-events-none"></div>
+         {/* Overlay Gradient for depth - with reduced opacity */}
+         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent pointer-events-none z-20" style={{ pointerEvents: 'none' }}></div>
        </div>
 
        {/* Grid Overlay */}
-       <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+       <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.05)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none z-30"></div>
        
        {/* Radar Sweep Effect */}
-       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+       <div className="absolute inset-0 overflow-hidden pointer-events-none z-30">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_300deg,rgba(6,182,212,0.1)_360deg)] animate-[spin_8s_linear_infinite] rounded-full opacity-30"></div>
        </div>
 
