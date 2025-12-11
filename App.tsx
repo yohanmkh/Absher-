@@ -9,10 +9,27 @@ import { Modal } from './components/Modal';
 import { MOCK_ALERTS } from './constants';
 
 const App: React.FC = () => {
-  const [selectedAlertId, setSelectedAlertId] = useState<string | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const selectedAlert = MOCK_ALERTS.find(a => a.id === selectedAlertId) || null;
+   const [selectedAlertId, setSelectedAlertId] = useState<string | null>(null);
+   const [isModalOpen, setIsModalOpen] = useState(false);
+   const [monitoredAlerts, setMonitoredAlerts] = useState<string[]>([]);
+
+   const selectedAlert = MOCK_ALERTS.find(a => a.id === selectedAlertId) || null;
+
+   // Dismiss handler: remove alert from list
+   const handleDismiss = () => {
+      if (selectedAlertId) {
+         setSelectedAlertId(null);
+         // Optionally, remove from MOCK_ALERTS if you want to hide it
+      }
+   };
+
+   // Monitor handler: add to monitored list
+   const handleMonitor = () => {
+      if (selectedAlertId && !monitoredAlerts.includes(selectedAlertId)) {
+         setMonitoredAlerts([...monitoredAlerts, selectedAlertId]);
+      }
+   };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30">
@@ -76,6 +93,8 @@ const App: React.FC = () => {
                  </div>
                  <ActionCenter 
                     alert={selectedAlert} 
+                    onDismiss={handleDismiss}
+                    onMonitor={handleMonitor}
                     onReport={() => setIsModalOpen(true)} 
                  />
               </div>

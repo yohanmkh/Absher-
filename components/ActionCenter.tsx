@@ -4,15 +4,18 @@ import { Alert } from '../types';
 
 interface ActionCenterProps {
   alert: Alert | null;
+  onDismiss: () => void;
+  onMonitor: () => void;
   onReport: () => void;
 }
 
-export const ActionCenter: React.FC<ActionCenterProps> = ({ alert, onReport }) => {
+export const ActionCenter: React.FC<ActionCenterProps> = ({ alert, onDismiss, onMonitor, onReport }) => {
   const disabled = !alert;
 
   return (
     <div className="grid grid-cols-3 gap-4">
        <button 
+         onClick={onDismiss}
          disabled={disabled}
          className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border border-slate-700 bg-slate-800/50 hover:bg-slate-800 hover:border-slate-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
        >
@@ -21,6 +24,7 @@ export const ActionCenter: React.FC<ActionCenterProps> = ({ alert, onReport }) =
        </button>
 
        <button 
+         onClick={onMonitor}
          disabled={disabled}
          className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl border border-amber-900/50 bg-amber-950/20 hover:bg-amber-900/40 hover:border-amber-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
        >
